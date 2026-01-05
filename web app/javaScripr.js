@@ -1,9 +1,18 @@
 document.getElementById('detailsForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevents page refresh
-    
+
     const formData = new FormData(this);
     const details = Object.fromEntries(formData.entries());
-    
-    console.log("Collected Personal Details:", details);
-    alert("Form submitted! Check the browser console (F12) for details.");
+
+    // Build a readable message from form fields
+    let messageLines = ['New Form Submission:'];
+    for (const [key, value] of Object.entries(details)) {
+        const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+        messageLines.push(`${label}: ${value}`);
+    }
+    const message = messageLines.join('\n');
+
+    // Open WhatsApp share with the prefilled message
+    const waShare = `https://wa.me/+14318047016?text=${encodeURIComponent(message)}`;
+    window.open(waShare, '_blank');
 });
