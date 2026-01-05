@@ -1,45 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BG</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-    <h2>Personal Details Form</h2>
-    <form id="detailsForm">
-        <fieldset>
-            <legend>Your Information</legend>
-            
-            <label for="fullName">Full Name:</label>
-            <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
 
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" min="1" required>
+document.getElementById('detailsForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevents page refresh
 
-            <label for="gender">Gender:</label>
-            <select id="gender" name="gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="non-binary">Non-binary</option>
-                <option value="other">Other/Prefer not to say</option>
-            </select>
+    const formData = new FormData(this);
+    const details = Object.fromEntries(formData.entries());
 
-            <label for="language">Preferred Language:</label>
-            <input type="text" id="language" name="language" placeholder="English, Spanish, etc.">
+    // Build a readable message from form fields
+    let messageLines = ['New Form Submission:'];
+    for (const [key, value] of Object.entries(details)) {
+        const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+        messageLines.push(`${label}: ${value}`);
+    }
+    const message = messageLines.join('\n');
 
-            <label for="location">Where do you live?</label>
-            <input type="text" id="location" name="location" placeholder="City, Country">
-
-            <label for="nationality">Nationality:</label>
-            <input type="text" id="nationality" name="nationality">
-        </fieldset>
-
-        <button type="submit">Submit Details</button>
-    </form>
-</div>
-<script src="javaScripr.js"></script>
-</body>
-</html>
+    // Open WhatsApp share with the prefilled message
+    const waShare = `https://wa.me/+14318047016?text=${encodeURIComponent(message)}`;
+    window.open(waShare, '_blank');
+});
