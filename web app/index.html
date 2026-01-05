@@ -1,19 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
 
-document.getElementById('detailsForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevents page refresh
+        <img src="my BG1.jpeg" alt="BG Company Logo" class="logo">
+    <p>
+        Welcome to the company! Please fill out the questions below and, if you are willing, send them to us via WhatsApp
+    </p>
+    <p>
+        እንኳዕ ናብዚ ካምፓኒ ብሰላም መጻእኹም! ገለ ሕቶታት ነዝ ኣብ ታሕቲ ዘሎ ሕቶታት መልኢኹም፡ ፍቓደኛ እንተኾንኩም ናይ ጽሑፍ መልክቲ ብዋትሳፕ ክትሰዱልና ትኽእሉ ኢኹም።
+    </p>
 
-    const formData = new FormData(this);
-    const details = Object.fromEntries(formData.entries());
+    <h2>Personal Details Form</h2>
+    <form id="detailsForm">
+        <fieldset>
+            <legend>Your Information</legend>
+            
+            <label for="fullName">full Name:</label>
+            <input type="text" id="fullName" name="fullName" placeholder="ምሉእ ስምካ/ኪ" required>
 
-    // Build a readable message from form fields
-    let messageLines = ['New Form Submission:'];
-    for (const [key, value] of Object.entries(details)) {
-        const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
-        messageLines.push(`${label}: ${value}`);
-    }
-    const message = messageLines.join('\n');
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" required>
 
-    // Open WhatsApp share with the prefilled message
-    const waShare = `https://wa.me/+14318047016?text=${encodeURIComponent(message)}`;
-    window.open(waShare, '_blank');
-});
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="non-binary">Non-binary</option>
+                <option value="other">Other/Prefer not to say</option>
+            </select>
+
+            <label for="language">Preferred Language:</label>
+            <input type="text" id="language" name="language" placeholder="English, Tigrinya, Amharic...etc.">
+
+            <label for="location">Where do you live?</label>
+            <input type="text" id="location" name="location" placeholder="ዝለኻሉ ሃገር/ዓዲ" >
+
+            <label for="nationality">Nationality:</label>
+            <input type="text" id="nationality" name="nationality" placeholder="ዜነት" required>
+        </fieldset>
+
+        <button type="submit">Send via WhatsApp</button>
+    </form>
+    
+     <p>
+        BG Company is a new website with a high number of users. It's growing rapidly, with many people using it, including Habeshas 
+        (Eritreans and Ethiopians) from all over the world, Chinese, Asians, Africans – it's a large company used worldwide. This company 
+        operates without much effort, working across various branches like Amazon and Alibaba.
+
+To be more certain... if you're ready to take the course and move on to the next part, you can receive comprehensive training in Tigrinya, 
+in your own language. BG Company is a large company, currently being established, gaining many users, and continuously developing. This company's 
+main business is generally similar to Amazon, Alibaba, and various other trade markets. Moreover, by joining the website and the company, you can 
+learn in your own language and receive extensive training. You can also become an employee, get hired, and start earning.
+<b>
+    <img src="my BG 3.png" alt="BG Company Logo">
+(ንዝያዳ ሓበሬታ)፦
+"ቢጂ ካምፓኒ ዝለዓለ ብብዝሒ ተጠቀምቲ ዘለዎ ሓድሽ ዌብሳይት ኮይኑ፡ ኣብዚ ጂ እንዳዓበየ ዝኸይድ ዘሎ፡ ብብዝሒ ሰባት ዝጥቀሙሉ፡ ሓበሻ ኤርትራውያን ይኹኑ ኢትዮጵያውያን
+ ካብ መላእ ዓለም፡ ቻይናውያን ኤስያውያን፡ ኣፍሪቃውያን፡ ካብ መላእ ዓለም ዝጥቀሙሉ ዘለዉ ዓቢ ካምፓኒ እዩ። እዚ ካምፓኒ እዚ ብዙሕ ድኻም ዘይብሉ፡ ምሉእ ጨንፈር ዝሰርሕ 
+ ከም በዓል አማዞን ከም በዓል ኣሊባባ ዝኣመሰለ ዌብሳይት እዩ።
+
+ብዝያዳ... ድልዋት እንተኾንኩም ኮርስ ክትወስዱ፡ ናብቲ ዝቕጽል ፓርት ክትሓልፉ፡  ብናትካ ዝጠቓለል ቋንቋ ስልጠና ክትወስድ ትኽእል ኢኻ። ቢጂ ካምፓኒ ሓደ ዓቢ ካምፓኒ ኮይኑ፡ 
+ሓድሽ ኣብ ቀረባ እዋን ዝምስረት ዘሎ፡ ብብዝሒ ተጠቀምቲ ዘፍሪ ዘሎ፡ ኣብዚ ጊዜ እዚ እንዳማዕበለ ይኸይድ። እዚ ካምፓኒ እዚ ቀንዲ ስርሑ ከም በዓል ኣማዞን፡ ከም በዓል ኣሊባባ፡ 
+ከም በዓል ዝተፈላለያ ንግዲ ማርኬታት ናይ ንግዲ ዝተቓለለ ብሓፈሻ እዩ። ብዝያዳ ናብቲ ዌብሳይት ምእታው፡ ናብቲ ካምፓኒ ምእታው ብናትካ ቋንቋ ክትመሃር ትኽእል ኢኻ፡  
+ስልጠና ክትወስድ ትኽእል ኢኻ። ብኡውን ተኸፋሊ ክትከውን ትኽእል ኢኻ፡ ስራሕካ ተቖጺርካ ተኸፋሊ ክትከውን ትኽእል ኢኻ።"</b>
+     </p>
+     <div>
+        <h3>Contact Us on WhatsApp</h3>
+        <p>Click the button below to send your details via WhatsApp:</p>
+        <a href="https://wa.me/+14318047016" target="_blank">
+            <button type="button">Contact on WhatsApp</button>
+        </a>
+    </div>
+
+    <p>
+
+        Thank you for taking the time to fill out this form. We look forward to connecting with you!
+    </p>
+
+</div>
+<script src="javaScripr.js"></script>
+</body>
+</html>
